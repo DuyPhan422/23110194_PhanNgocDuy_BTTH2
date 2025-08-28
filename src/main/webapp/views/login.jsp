@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập</title>
+    <!-- Thêm Bootstrap và Font Awesome nếu cần -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <form action="login" method="post">
+        <h2>Đăng Nhập</h2>  <!-- Sửa tiêu đề từ PDF nếu cần -->
+        <c:if test="${alert != null}">
+            <h3 class="alert alert-danger">${alert}</h3>
+        </c:if>
+        <section>
+            <label class="input login-input">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="Tài khoản" name="username" class="form-control" required>
+                </div>
+            </label>
+            <label class="input login-input">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" placeholder="Mật khẩu" name="password" class="form-control" required>
+                </div>
+            </label>
+            <label>
+                <input type="checkbox" name="remember"> Nhớ mật khẩu
+            </label>
+            <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+        </section>
+    </form>
+</body>
+</html>
