@@ -2,7 +2,7 @@ package vn.iotstart.configs;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.sql.SQLException;
 
 public class DBConnectSQL {
 	private final String serverName = ".\\DUYSQL";
@@ -13,16 +13,19 @@ public class DBConnectSQL {
 	private final String password = "40938813dD#";
 
 	public Connection getConnection() throws Exception {
-		String url = "jdbc:sqlserver://" + serverName + "\\" + instance + ":" + portNumber + ";encrypt=true;trustServerCertificate=true;databaseName=" + dbName;
-		if (instance == null || instance.trim().isEmpty())
-			url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";encrypt=true;trustServerCertificate=true;databaseName=" + dbName;
+		String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName
+				+ ";encrypt=false;";
+
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		return DriverManager.getConnection(url, userID, password);
 	}
 
 	public static void main(String[] args) {
 		try {
-			System.out.println(new DBConnectSQL().getConnection());
+			Connection conn = new DBConnectSQL().getConnection();
+			if (conn != null) {
+				System.out.println("Kết nối SQL Server thành công với user sa!");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
