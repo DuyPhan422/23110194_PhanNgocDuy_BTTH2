@@ -52,7 +52,7 @@ public class RegisterController extends HttpServlet {
 		u.setFullName(fullname);
 		u.setEmail(email);
 		u.setPhone(phone);
-		u.setId(3);
+		u.setRoleId(3);
 		userService.insert(u);
 		resp.sendRedirect(req.getContextPath() + "/login");
 
