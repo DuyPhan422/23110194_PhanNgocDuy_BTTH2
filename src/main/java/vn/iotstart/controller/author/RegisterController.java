@@ -6,10 +6,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import vn.iotstart.model.User;
 import vn.iotstart.service.UserService;
-import vn.iotstart.service.UserServiceImpl;
+import vn.iotstart.service.impl.UserServiceImpl;
 
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {

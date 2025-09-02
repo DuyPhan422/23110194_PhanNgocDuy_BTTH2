@@ -1,7 +1,7 @@
-package vn.iotstart.service;
+package vn.iotstart.service.impl;
 
 import vn.iotstart.dao.UserDao;
-import vn.iotstart.dao.UserDaoImpl;
+import vn.iotstart.dao.impl.UserDaoImpl;
 import vn.iotstart.model.User;
 import vn.iotstart.service.UserService;
 
@@ -45,11 +45,5 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getByEmail(String email) {
 	    return userDao.getByEmail(email);
-	}
-
-	@Override
-	public boolean register(String email, String password, String username, String fullname, String phone) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

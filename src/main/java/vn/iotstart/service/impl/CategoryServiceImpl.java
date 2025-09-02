@@ -1,8 +1,8 @@
-package vn.iotstart.service;
+package vn.iotstart.service.impl;
 
 import java.util.List;
 import vn.iotstart.dao.CategoryDao;
-import vn.iotstart.dao.CategoryDaoImpl;
+import vn.iotstart.dao.impl.CategoryDaoImpl;
 import vn.iotstart.model.Category;
 import vn.iotstart.service.CategoryService;
 

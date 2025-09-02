@@ -1,13 +1,12 @@
-package vn.iotstart.dao;
+package vn.iotstart.dao.impl;
 
+import vn.iotstart.configs.DBConnectSQL;
+import vn.iotstart.model.Category;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import vn.iotstart.configs.DBConnectSQL;
-import vn.iotstart.model.Category;
 import vn.iotstart.dao.CategoryDao;
 
 public class CategoryDaoImpl extends DBConnectSQL implements CategoryDao {

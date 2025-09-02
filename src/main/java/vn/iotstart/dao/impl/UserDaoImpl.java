@@ -1,8 +1,9 @@
-package vn.iotstart.dao;
+package vn.iotstart.dao.impl;
 
-import java.sql.*;
 
 import vn.iotstart.model.User;
+import java.sql.*;
+
 import vn.iotstart.configs.DBConnectSQL;
 import vn.iotstart.dao.UserDao;
 
@@ -19,7 +20,7 @@ public class UserDaoImpl implements UserDao {
 	}
 	@Override
 	public User get(String username) {
-		String sql = "SELECT * FROM [User] WHERE username = ?";
+		String sql = "SELECT * FROM [Users] WHERE username = ?";
 		try {
 			//thừa tạo conn, đang fix lỗi
 			conn = new DBConnectSQL().getConnection();
@@ -47,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void insert(User user) {
-		String sql = "INSERT INTO User (username, password, email, phone, fullname, roleid, createdDate) VALUES (?, ?, ?, ?, ?, ?, GETDATE())";
+		String sql = "INSERT INTO Users (username, password, email, phone, fullname, roleid, createdDate) VALUES (?, ?, ?, ?, ?, ?, GETDATE())";
 		try {
 			//thừa tạo conn, đang fix lỗi
 			conn = new DBConnectSQL().getConnection();
@@ -67,7 +68,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean checkExistEmail(String email) {
 		try {
-			String sql = "SELECT 1 FROM User WHERE email=?";
+			String sql = "SELECT 1 FROM Users WHERE email=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
@@ -81,7 +82,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean checkExistUsername(String username) {
 		try {
-			String sql = "SELECT 1 FROM User WHERE username=?";
+			String sql = "SELECT 1 FROM Users WHERE username=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
@@ -95,7 +96,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public boolean checkExistPhone(String phone) {
 		try {
-			String sql = "SELECT 1 FROM User WHERE phone=?";
+			String sql = "SELECT 1 FROM Users WHERE phone=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, phone);
 			ResultSet rs = ps.executeQuery();
